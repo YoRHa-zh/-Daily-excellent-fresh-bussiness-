@@ -1,0 +1,56 @@
+.home-container {
+    .left {
+        width: 180px;
+        height: 100%;
+        position: fixed;
+
+        .ant-menu {
+            height: 100%;
+        }
+    }
+
+    .main {
+        transition: all .3s;
+        margin-left: 180px;
+
+        &.fold {
+            margin-left: 80px;
+        }
+
+        .header {
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid #eee;
+            padding-left: 10px;
+            padding-right: 20px;
+
+            .breadcrumb {
+                display: inline-block;
+                margin-left: 20px;
+            }
+
+            .userInfo {
+                float: right;
+                cursor: pointer;
+                text-align: center;
+
+                li:nth-of-type(2) {
+                    display: none;
+                    &:hover{
+                        font-weight: 700;
+                        background-color: #eee;
+                        color: #999;
+
+                    }
+                }
+
+                &:hover {
+                    li {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
+}
