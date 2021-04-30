@@ -1,19 +1,11 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
 import { setCookie, getCookie, removeCookie } from '@/utils/userCookie';
 
-Vue.use(Vuex);
-
-export default new Vuex.Store({
+export default {
+  namespaced: true,
   state: {
-    collapsed: false,
     user: getCookie(),
-    menuRoutes: [],
   },
   mutations: {
-    changeCollapsed(state) {
-      state.collapsed = !state.collapsed;
-    },
     setUserInfo(state, userInfo) {
       state.user = setCookie(userInfo);
     },
@@ -25,15 +17,8 @@ export default new Vuex.Store({
         email: '',
       };
     },
-    changeMenuRoutes(state, routes) {
-      const r = routes.filter((it) => it.name !== 'Login');
-      state.menuRoutes = r;
-    },
   },
   actions: {
-    changeCollapsed({ commit }) {
-      commit('changeCollapsed');
-    },
     setUserInfo({ commit }, userInfo) {
       commit('setUserInfo', userInfo);
       setCookie(userInfo);
@@ -42,8 +27,5 @@ export default new Vuex.Store({
       commit('loginOut');
       removeCookie();
     },
-    changeMenuRoutes({ commit }, routes) {
-      commit('changeMenuRoutes', routes);
-    },
   },
-});
+};
