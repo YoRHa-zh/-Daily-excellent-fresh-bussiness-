@@ -3,7 +3,6 @@ import Vuex from 'vuex';
 import { setCookie, getCookie, removeCookie } from '@/utils/userCookie';
 
 Vue.use(Vuex);
-
 export default new Vuex.Store({
   state: {
     collapsed: false,
@@ -26,8 +25,7 @@ export default new Vuex.Store({
       };
     },
     changeMenuRoutes(state, routes) {
-      const r = routes.filter((it) => it.name !== 'Login');
-      state.menuRoutes = r;
+      state.menuRoutes = routes;
     },
   },
   actions: {

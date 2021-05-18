@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <div class="left">
-      <LeftMenu />
+      <LeftMenu :key="key"/>
     </div>
     <div :class="{ fold: $store.state.collapsed, main: true }">
       <Header />
@@ -20,10 +20,13 @@ export default {
   },
   data() {
     return {
+      key: new Date().getTime(),
     };
   },
-  methods: {
-
+  watch: {
+    $route() {
+      this.key = new Date().getTime();
+    },
   },
 };
 </script>

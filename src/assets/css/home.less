@@ -22,7 +22,7 @@
             line-height: 50px;
             border-bottom: 1px solid #eee;
             padding-left: 10px;
-            padding-right: 20px;
+            padding-right: 50px;
 
             .breadcrumb {
                 display: inline-block;
@@ -34,9 +34,27 @@
                 cursor: pointer;
                 text-align: center;
 
+                li{
+                    width: 60px;
+                }
                 li:nth-of-type(2) {
                     display: none;
+                    position: absolute;
+                    top: 40px;
+                    z-index: 999;
+                    &:hover {
+                        font-weight: 700;
+                        background-color: #eee;
+                        color: #999;
 
+                    }
+                }
+                li:nth-of-type(3){
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    z-index: 999;
+                    margin-top: 15px;
                     &:hover {
                         font-weight: 700;
                         background-color: #eee;
@@ -48,6 +66,9 @@
                 &:hover {
                     li {
                         display: block;
+                        width: 60px;
+                        text-align: center;
+
                     }
                 }
             }
